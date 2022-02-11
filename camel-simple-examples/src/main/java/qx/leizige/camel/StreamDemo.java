@@ -2,13 +2,13 @@ package qx.leizige.camel;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
+import qx.leizige.camel.util.CamelUtil;
 
-public class CamelStreamDemo {
+public class StreamDemo {
 
     public static void main(String[] args) throws Exception {
 
         CamelContext context = CamelUtil.getCamelContext(new StreamRoutesBuilder());
-
 
         context.start();
         Thread.sleep(3000);

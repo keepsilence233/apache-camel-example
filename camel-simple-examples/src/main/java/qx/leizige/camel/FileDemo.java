@@ -9,7 +9,7 @@ import org.apache.camel.impl.DefaultCamelContext;
  * 2022/02/02
  * 使用Apache Camel将文件从一个文件夹路由到另一个文件夹
  */
-public class FileCopier {
+public class FileDemo {
 
     public static void main(String[] args) throws Exception {
 
@@ -17,8 +17,9 @@ public class FileCopier {
         context.addRoutes(new RouteBuilder() {
             @Override
             public void configure() {
-                //将文件从inbox路由到outbox
-                from("file:D://inbox")
+                //将inbox文件夹中的文件路由到outbox文件夹
+                //file:directoryName
+                from("file:D://inbox?noop=true")
                         .to("file:D://outbox");
             }
         });
