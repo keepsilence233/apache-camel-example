@@ -1,9 +1,9 @@
-package qx.leizige.camel;
+package qx.leizige.camel.rest;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class RestRoute extends RouteBuilder {
 
     @Override
