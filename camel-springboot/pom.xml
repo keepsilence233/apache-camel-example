@@ -7,6 +7,18 @@
     <groupId>qx.leizige</groupId>
     <artifactId>camel-springboot</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <parent>
         <artifactId>spring-boot-parent</artifactId>
@@ -62,6 +74,15 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-http-starter</artifactId>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.camel.springboot/camel-cxf-starter -->
+        <dependency>
+            <groupId>org.apache.camel.springboot</groupId>
+            <artifactId>camel-cxf-starter</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+
 
         <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-test-spring -->
         <dependency>
