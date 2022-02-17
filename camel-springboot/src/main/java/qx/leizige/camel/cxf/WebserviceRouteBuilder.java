@@ -1,7 +1,11 @@
 package qx.leizige.camel.cxf;
 
+import org.apache.camel.Exchange;
 import org.apache.camel.LoggingLevel;
+import org.apache.camel.Processor;
+import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.RouteBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,19 +22,26 @@ public class WebserviceRouteBuilder extends RouteBuilder {
             "   </soapenv:Body>\n" +
             "</soapenv:Envelope>";
 
+
+    @Autowired
+    private ProducerTemplate producerTemplate;
+
     @Override
     public void configure() throws Exception {
         //camel 调用webservice
-        from("timer://foo?repeatCount=1")
+        from("netty-http:http://localhost:8081/")
                 .setBody(constant(value))
-                .to(getCXFEndpointUri(SERVICE_ADDRESS, WSDL_URL))
+//                .to(getCXFEndpointUri(SERVICE_ADDRESS, WSDL_URL))
 //                .convertBodyTo(String.class);
                 .log(LoggingLevel.INFO, "${body}")
-                .setBody(simple("${body}"))
-                .process((exchange) -> {
-//                    String body = exchange.getOut().getBody(String.class);
-                    String body = exchange.getIn().getBody(String.class);
-                    System.err.println(body);
+                .process(exchange -> {
+                    Object s = producerTemplate.send(getCXFEndpointUri(SERVICE_ADDRESS, WSDL_URL), new Processor() {
+                        @Override
+                        public void process(Exchange exchange) throws Exception {
+                            exchange.getMessage().setBody(simple("${body}"));
+                            System.out.println(exchange.getIn().getBody(String.class));
+                        }
+                    });
                 });
     }
 
