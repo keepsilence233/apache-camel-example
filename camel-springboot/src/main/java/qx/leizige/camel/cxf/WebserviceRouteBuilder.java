@@ -1,12 +1,20 @@
 package qx.leizige.camel.cxf;
 
 import org.apache.camel.LoggingLevel;
+import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.RouteBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class WebserviceRouteBuilder extends RouteBuilder {
 
+    private ProducerTemplate producerTemplate;
+
+    @Autowired
+    public void setProducerTemplate(ProducerTemplate producerTemplate) {
+        this.producerTemplate = producerTemplate;
+    }
 
     String value = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:impl=\"http://impl.api.webservice.leizige.qx/\">\n" +
             "   <soapenv:Header/>\n" +
@@ -25,13 +33,10 @@ public class WebserviceRouteBuilder extends RouteBuilder {
                 .setBody(constant(value))
                 .to(getCXFEndpointUri(SERVICE_ADDRESS, WSDL_URL))
 //                .convertBodyTo(String.class);
-                .log(LoggingLevel.INFO, "${body}")
-                .setBody(simple("${body}"))
-                .process((exchange) -> {
-//                    String body = exchange.getOut().getBody(String.class);
-                    String body = exchange.getIn().getBody(String.class);
-                    System.err.println(body);
-                });
+                .log(LoggingLevel.INFO, "${body}");
+
+        String result3 = producerTemplate.requestBody(getCXFEndpointUri(SERVICE_ADDRESS, WSDL_URL), value, String.class);
+        System.out.println(result3);
     }
 
     public static final String SERVICE_ADDRESS = "http://localhost:8080/webservice/weaverOA";
