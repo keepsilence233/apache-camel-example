@@ -35,8 +35,9 @@ public class WebserviceRouteBuilder extends RouteBuilder {
 //                .convertBodyTo(String.class);
                 .log(LoggingLevel.INFO, "${body}");
 
-        String result3 = producerTemplate.requestBody(getCXFEndpointUri(SERVICE_ADDRESS, WSDL_URL), value, String.class);
-        System.out.println(result3);
+        String webserviceResult = producerTemplate.requestBody(getCXFEndpointUri(SERVICE_ADDRESS, WSDL_URL), value, String.class);
+        webserviceResult = getWebserviceResult(webserviceResult);
+        System.out.println("webserviceResult = " + webserviceResult);
     }
 
     public static final String SERVICE_ADDRESS = "http://localhost:8080/webservice/weaverOA";
@@ -52,5 +53,9 @@ public class WebserviceRouteBuilder extends RouteBuilder {
         return new StringBuilder("cxf:")
                 .append(serviceAddress).append("?wsdlURL=")
                 .append(wsdlURL).append("&").append("dataFormat=RAW").toString();
+    }
+
+    public static String getWebserviceResult(String webserviceResult) {
+        return webserviceResult.substring(webserviceResult.indexOf("<return>"), webserviceResult.indexOf("</return>")).substring("<return>".length());
     }
 }
