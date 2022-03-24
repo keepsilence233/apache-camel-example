@@ -25,5 +25,14 @@ public interface WeaverOAApi {
      */
     @WebMethod(action = "http://impl.api.webservice.leizige.qx/auditNotPassed")
     String auditNotPassed(@WebParam(name = "requestId", targetNamespace = "http://impl.api.webservice.leizige.qx/") String requestId);
+
+
+    /**
+     * OA审核驳回
+     */
+    @WebMethod(action = "http://impl.api.webservice.leizige.qx/extMethod")
+    String extMethod(@WebParam(name = "param1", targetNamespace = "http://impl.api.webservice.leizige.qx/") String param1,
+                     @WebParam(name = "param2", targetNamespace = "http://impl.api.webservice.leizige.qx/") String param2,
+                     @WebParam(name = "param3", targetNamespace = "http://impl.api.webservice.leizige.qx/") String param3);
 }
 

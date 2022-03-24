@@ -30,4 +30,9 @@ public class WeaverOAApiController implements WeaverOAApi {
         System.out.println("WeaverOA 审核驳回,requestId为:" + requestId);
         return "success";
     }
+
+    @Override
+    public String extMethod(String param1, String param2, String param3) {
+        return "success";
+    }
 }
