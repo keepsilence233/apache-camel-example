@@ -119,6 +119,14 @@
             <version>${camel.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-quartz -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-quartz</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
+
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
