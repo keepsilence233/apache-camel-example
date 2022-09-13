@@ -4,26 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>qx.leizige</groupId>
     <artifactId>camel-springboot</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <version>2.0-SNAPSHOT</version>
 
     <parent>
-        <artifactId>spring-boot-parent</artifactId>
-        <groupId>org.springframework.boot</groupId>
-        <version>1.5.13.RELEASE</version>
+        <artifactId>apache-camel</artifactId>
+        <groupId>qx.leizige</groupId>
+        <version>1.0-SNAPSHOT</version>
     </parent>
 
     <properties>
@@ -139,6 +126,26 @@
             <version>31.0.1-jre</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-pg-replication-slot -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-pg-replication-slot</artifactId>
+            <version>3.17.0</version>
+        </dependency>
+
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
