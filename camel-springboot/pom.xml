@@ -16,18 +16,18 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <camel.version>2.21.1</camel.version>
+        <camel.version>3.14.0</camel.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-spring-boot-dependencies -->
+            <!-- https://mvnrepository.com/artifact/org.apache.camel.springboot/camel-spring-boot-dependencies -->
             <dependency>
-                <groupId>org.apache.camel</groupId>
+                <groupId>org.apache.camel.springboot</groupId>
                 <artifactId>camel-spring-boot-dependencies</artifactId>
                 <version>${camel.version}</version>
                 <type>pom</type>
-                <scope>import</scope>
+                <scope>provided</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -44,49 +44,28 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
+        <!-- camel -->
+
         <dependency>
-            <groupId>org.apache.camel</groupId>
+            <groupId>org.apache.camel.springboot</groupId>
             <artifactId>camel-spring-boot-starter</artifactId>
+            <version>${camel.version}</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-integration -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-integration</artifactId>
-        </dependency>
-
 
         <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-http-starter -->
         <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-http-starter</artifactId>
+            <groupId>org.apache.camel.springboot</groupId>
+            <artifactId>camel-netty-http-starter</artifactId>
+            <version>${camel.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.camel.springboot/camel-cxf-starter -->
         <dependency>
             <groupId>org.apache.camel.springboot</groupId>
             <artifactId>camel-cxf-starter</artifactId>
-            <version>3.0.0</version>
+            <version>${camel.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-netty-http -->
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-netty-http</artifactId>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-test-spring -->
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-test-spring</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -98,12 +77,14 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-jetty</artifactId>
             <version>${camel.version}</version>
+
         </dependency>
 
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-http</artifactId>
             <version>${camel.version}</version>
+
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-quartz -->
@@ -113,10 +94,32 @@
             <version>${camel.version}</version>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>org.apache.camel</groupId>-->
+<!--            <artifactId>camel-test-junit5</artifactId>-->
+<!--            <version>${camel.version}</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.apache.camel</groupId>-->
+<!--            <artifactId>camel-test-spring-junit5</artifactId>-->
+<!--            <version>${camel.version}</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-api -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-api</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
+
 
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
+            <version>2.0.8</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
@@ -125,20 +128,6 @@
             <artifactId>guava</artifactId>
             <version>31.0.1-jre</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-api</artifactId>
-            <version>3.14.1</version>
-            <scope>compile</scope>
-        </dependency>
-
-        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.camel/camel-pg-replication-slot &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.camel</groupId>-->
-<!--            <artifactId>camel-pg-replication-slot</artifactId>-->
-<!--            <version>3.17.0</version>-->
-<!--        </dependency>-->
-
     </dependencies>
 
     <build>
