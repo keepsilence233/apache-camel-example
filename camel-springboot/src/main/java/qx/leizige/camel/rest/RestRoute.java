@@ -1,7 +1,10 @@
 package qx.leizige.camel.rest;
 
+import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
+
+import java.util.Set;
 
 //@Component
 public class RestRoute extends RouteBuilder {
@@ -16,5 +19,4 @@ public class RestRoute extends RouteBuilder {
                 .to("rest:get:pets/{id}")
                 .log("${body}");
     }
-
 }

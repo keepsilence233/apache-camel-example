@@ -125,13 +125,19 @@
             <artifactId>guava</artifactId>
             <version>31.0.1-jre</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-pg-replication-slot -->
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-pg-replication-slot</artifactId>
-            <version>3.17.0</version>
+            <artifactId>camel-api</artifactId>
+            <version>3.14.1</version>
+            <scope>compile</scope>
         </dependency>
+
+        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.camel/camel-pg-replication-slot &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.camel</groupId>-->
+<!--            <artifactId>camel-pg-replication-slot</artifactId>-->
+<!--            <version>3.17.0</version>-->
+<!--        </dependency>-->
 
     </dependencies>
 
