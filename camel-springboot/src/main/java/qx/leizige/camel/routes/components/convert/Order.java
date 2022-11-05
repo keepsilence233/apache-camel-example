@@ -1,6 +1,8 @@
 package qx.leizige.camel.routes.components.convert;
 
-public class Order {
+import java.io.Serializable;
+
+public class Order implements Serializable {
     private String name;
     private String orderNo;
 

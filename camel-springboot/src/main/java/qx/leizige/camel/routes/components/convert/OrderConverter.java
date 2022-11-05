@@ -2,10 +2,11 @@ package qx.leizige.camel.routes.components.convert;
 
 import org.apache.camel.Converter;
 import org.apache.camel.Exchange;
+import org.apache.camel.TypeConverters;
 import org.springframework.util.StringUtils;
 
-@Converter
-public final class OrderConverter {
+@Converter(generateLoader = true)
+public final class OrderConverter implements TypeConverters {
 
     @Converter
     public static Order toOrder(String data, Exchange exchange) {
