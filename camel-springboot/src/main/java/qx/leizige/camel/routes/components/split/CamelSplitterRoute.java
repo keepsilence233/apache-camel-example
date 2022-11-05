@@ -1,7 +1,6 @@
 package qx.leizige.camel.routes.components.split;
 
 
-import com.alibaba.fastjson.JSON;
 import lombok.Builder;
 import lombok.Data;
 import org.apache.camel.ProducerTemplate;
@@ -9,13 +8,10 @@ import org.apache.camel.builder.RouteBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-@Component
+//@Component
 public class CamelSplitterRoute extends RouteBuilder implements ApplicationRunner {
 
     @Autowired
