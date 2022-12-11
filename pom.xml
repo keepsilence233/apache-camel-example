@@ -17,7 +17,6 @@
 
     <modules>
         <module>camel-springboot</module>
-        <module>webservice</module>
     </modules>
 
     <properties>
