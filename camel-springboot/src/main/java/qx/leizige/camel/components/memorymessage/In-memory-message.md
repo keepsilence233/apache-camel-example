@@ -1,0 +1,5 @@
+Camel在核心中提供了四个主要组件来处理内存消息。
+对于同步消息传递，有Direct和Direct-VM组件。
+对于同步消息传递，有SEDA和VM组件。
+Direct和Direct-VM之间的唯一区别是，Direct组件可以用于在单个CamelContext中进行通信，而Direct-VM组件更广泛，可以用于在JVM中进行通信。
+如果将两个CamelContexts加载到应用程序服务器中，则可以使用Direct-VM组件在它们之间发送消息。类似地，SEDA和VM之间的唯一区别是VM组件可以用于JVM内的通信

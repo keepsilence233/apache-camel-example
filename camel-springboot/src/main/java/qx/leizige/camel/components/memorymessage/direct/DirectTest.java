@@ -1,4 +1,4 @@
-package qx.leizige.camel.components.direct;
+package qx.leizige.camel.components.memorymessage.direct;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
