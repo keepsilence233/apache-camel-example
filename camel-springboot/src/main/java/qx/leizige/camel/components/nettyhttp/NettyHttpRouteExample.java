@@ -21,7 +21,7 @@ public class NettyHttpRouteExample extends RouteBuilder {
 						exchange.getIn().setHeader(Exchange.HTTP_QUERY, httpQuery);
 					}
 				})
-				.to("netty-http:localhost:8888/rest/add")
+				.to("netty-http:http://localhost:8888/rest/add")
 				.log(LoggingLevel.DEBUG,"${body}");
 	}
 }

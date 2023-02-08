@@ -13,7 +13,7 @@ public class NettyHttpTest {
         CamelContext context = CamelUtil.getCamelContext(new RouteBuilder() {
             @Override
             public void configure() throws Exception {
-                from("netty-http:localhost:9890/test")
+                from("netty-http:http://localhost:9890/test")
                         .setBody(simple(json,String.class))
                         .process(exchange -> {
                             System.out.println(exchange.getIn().getBody());
