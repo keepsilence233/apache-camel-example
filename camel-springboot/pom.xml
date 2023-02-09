@@ -114,6 +114,20 @@
             <version>${camel.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-scheduler -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-scheduler</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-stream -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-stream</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
+
         <!-- camel end -->
 
         <!-- testing  start -->
