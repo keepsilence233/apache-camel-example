@@ -1,4 +1,10 @@
 package org.apache.camel.test;
 
-public class BaseCamelTest {
+
+import org.apache.camel.test.junit4.CamelTestSupport;
+
+/**
+ * camel base testing
+ */
+public abstract class BaseCamelTest extends CamelTestSupport {
 }

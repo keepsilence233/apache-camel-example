@@ -2,8 +2,8 @@ package qx.leizige.camel.components.dynamic.todynamic;
 
 import org.apache.camel.Endpoint;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.test.junit5.CamelTestSupport;
-import org.junit.jupiter.api.Test;
+import org.apache.camel.test.junit4.CamelTestSupport;
+import org.junit.Test;
 
 public class ToDynamicRouterTest extends CamelTestSupport {
 
