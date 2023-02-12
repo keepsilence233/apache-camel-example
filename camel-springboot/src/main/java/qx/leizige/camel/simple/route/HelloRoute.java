@@ -1,4 +1,4 @@
-package org.apache.camel.test.simple.route;
+package qx.leizige.camel.simple.route;
 
 import org.apache.camel.builder.RouteBuilder;
 

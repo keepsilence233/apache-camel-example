@@ -1,7 +1,7 @@
-package org.apache.camel.test.simple;
+package qx.leizige.camel.simple;
 
 import org.apache.camel.main.Main;
-import org.apache.camel.test.simple.route.HelloRoute;
+import qx.leizige.camel.simple.route.HelloRoute;
 
 /**
  * Camel提供了一个org.apache.Camel.main.main类，使其更易于运行

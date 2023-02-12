@@ -1,8 +1,8 @@
-package org.apache.camel.test.simple;
+package qx.leizige.camel.simple;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.impl.DefaultCamelContext;
-import org.apache.camel.test.simple.route.HelloRoute;
+import qx.leizige.camel.simple.route.HelloRoute;
 
 
 /**
