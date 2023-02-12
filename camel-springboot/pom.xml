@@ -157,6 +157,12 @@
             <version>${camel.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-spring-javaconfig -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-spring-javaconfig</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
         <!-- camel testing  start -->
 
         <dependency>
