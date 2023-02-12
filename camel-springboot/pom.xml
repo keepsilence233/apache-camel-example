@@ -142,6 +142,11 @@
             <version>${camel.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-jms</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
         <!-- camel end -->
 
         <!-- camel testing  start -->
