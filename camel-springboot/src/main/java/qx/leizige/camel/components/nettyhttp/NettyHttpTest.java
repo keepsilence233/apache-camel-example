@@ -1,38 +1,37 @@
 package qx.leizige.camel.components.nettyhttp;
 
-import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
-import qx.leizige.camel.utils.CamelUtil;
+import org.apache.camel.main.Main;
 
 public class NettyHttpTest {
 
+
     public static void main(String[] args) throws Exception {
+
+        Main main = new Main();
+        main.configure().addRoutesBuilder(new NettyHttpRouteBuilder());
+        main.run();
+    }
+
+    static class NettyHttpRouteBuilder extends RouteBuilder {
         String json = "{\"key\":\"123123\"}";
-        //netty-http:http://0.0.0.0:8080[?options]
-        CamelContext context = CamelUtil.getCamelContext(new RouteBuilder() {
-            @Override
-            public void configure() throws Exception {
-                from("netty-http:http://localhost:9890/test")
-                        .setBody(simple(json,String.class))
-                        .process(exchange -> {
-                            System.out.println(exchange.getIn().getBody());
-                        })
-//                        .filter().xpath("[?(<$.key == '123123'>)]")
-                        .filter().method(MyBean.class,"isGoldCustomer")
-                        .to("netty-http:http://101.132.24.133:8803/middle-platform-adapter/actuator")
-                        .process((exchange -> {
-                            String body = exchange.getIn().getBody(String.class);
-                            System.out.println("body = " + body);
-                        }))
-                        .to("stream:out");
-            }
-        });
 
-        context.start();
-        Thread.sleep(3000);
-        context.stop();
-
+        @Override
+        public void configure() throws Exception {
+            from("netty-http:http://localhost:9890/test")
+                    .setBody(simple(json, String.class))
+                    .process(exchange -> {
+                        System.out.println(exchange.getIn().getBody());
+                    })
+                    .filter().method(MyBean.class, "isGoldCustomer")
+                    .to("netty-http:http://101.132.24.133:8803/middle-platform-adapter/actuator")
+                    .process((exchange -> {
+                        String body = exchange.getIn().getBody(String.class);
+                        System.out.println("body = " + body);
+                    }))
+                    .to("stream:out");
+        }
     }
 
     public static class MyBean {

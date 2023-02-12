@@ -1,18 +1,18 @@
 package qx.leizige.camel.components.stream;
 
-import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
-import qx.leizige.camel.utils.CamelUtil;
+import org.apache.camel.main.Main;
 
+/**
+ * camel stream component test
+ */
 public class StreamTest {
 
     public static void main(String[] args) throws Exception {
 
-        CamelContext context = CamelUtil.getCamelContext(new StreamRoutesBuilder());
-
-        context.start();
-        Thread.sleep(3000);
-        context.stop();
+        Main main = new Main();
+        main.configure().addRoutesBuilder(new StreamRoutesBuilder());
+        main.run();
     }
 
 
