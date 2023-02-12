@@ -13,7 +13,7 @@ import static freemarker.template.Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENT
  * {@link ImportResource @ImportResource} 将 Camel XML DSl 结合 SpringBoot 使用
  */
 @SpringBootApplication
-//@ImportResource("classpath:camel-xml/mycamel.xml")
+//@ImportResource("classpath:camel-spring-xml/mycamel.xml")
 public class SpringCamelApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringCamelApplication.class, args);

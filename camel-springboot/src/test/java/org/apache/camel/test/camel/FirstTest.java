@@ -1,8 +1,9 @@
-package org.apache.camel.test;
+package org.apache.camel.test.camel;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.test.BaseCamelTest;
 import org.junit.Test;
 
 import java.io.File;

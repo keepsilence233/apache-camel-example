@@ -150,6 +150,13 @@
             <artifactId>camel-test</artifactId>
             <version>${camel.version}</version>
         </dependency>
+        <!--Camel testing with Spring-->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-test-spring</artifactId>
+            <version>${camel.version}</version>
+            <scope>test</scope>
+        </dependency>
         <!-- camel testing  start -->
 
         <dependency>
