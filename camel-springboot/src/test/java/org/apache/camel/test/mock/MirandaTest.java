@@ -20,6 +20,7 @@ public class MirandaTest extends BaseCamelTest {
                 from("jetty://http://localhost:9080/service/order")
                         .transform().message(m -> "ID=" + m.getHeader("id"))
                         .to("mock:miranda")
+                        .log("mock:miranda body : ${body}")
                         .transform().body(String.class, b -> StringHelper.after(b, "STATUS="));
             }
         };
